@@ -58,3 +58,20 @@ console.log(convoluted);
 }
 
 addLett("D");
+
+
+//testing functions built into objects
+let testObject = {
+    fname: "yeets",
+    lname: "mcDab",
+    favFood: ["nuggies", "tendies", "the fried potato strips of france"],
+    add_food: (food) => {testObject.favFood.push(food)},
+    remove_food: () => testObject.favFood.pop(),
+}
+
+testObject.add_food("pringles");
+console.log(testObject.favFood);
+
+testObject.remove_food();
+console.log(testObject.favFood);
+
