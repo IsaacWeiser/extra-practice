@@ -69,9 +69,53 @@ let testObject = {
     remove_food: () => testObject.favFood.pop(),
 }
 
+let testObj2 = {
+    inLibrary: true,
+    meal: "nugs",
+    mood: "sad",
+    bipolar: (feel) => testObj2.mood =feel
+}
+
 testObject.add_food("pringles");
 console.log(testObject.favFood);
 
 testObject.remove_food();
 console.log(testObject.favFood);
 
+console.log(testObj2);
+testObj2.bipolar("Happy");
+console.log(testObj2);
+
+
+
+//adding event listener
+document.addEventListener("click", (event)=> {
+if (event.target.id === "stage") {
+   event.target.style.color="red";
+   
+}
+})
+
+document.addEventListener("click", (event)=>{
+    if (event.target.id === "stage"){
+        console.log("yeeee");
+        event.target.textContent="asdfghjk";
+    }
+})
+
+document.addEventListener("click", (event)=> {
+    if (event.target.id === "tit") {
+        event.target.textContent = "THE";
+    }
+})
+// adding some array methods
+let array = [1,2,3,4,5];
+
+let arg1 = array.map((item)=> `big ${item}`);
+console.log(arg1);
+
+console.log(array.find(item => item<2));
+
+console.log(array.filter(item=> item>2));
+
+console.log(array.join("____"));
