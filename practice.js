@@ -89,7 +89,7 @@ console.log(testObj2);
 
 
 //adding event listener
-document.addEventListener("click", (event)=> {
+/*document.addEventListener("click", (event)=> {
 if (event.target.id === "stage") {
    event.target.style.color="red";
    
@@ -107,7 +107,7 @@ document.addEventListener("click", (event)=> {
     if (event.target.id === "tit") {
         event.target.textContent = "THE";
     }
-})
+})*/
 // adding some array methods
 let array = [1,2,3,4,5];
 
@@ -119,3 +119,32 @@ console.log(array.find(item => item<2));
 console.log(array.filter(item=> item>2));
 
 console.log(array.join("____"));
+
+
+// more array joining methods practice
+
+let nxtBgThng_2021_sat= ["Girl in Red", "YungBlud", "Bastille", "Andrew McMahon", "Weezer"];
+
+let aa = nxtBgThng_2021_sat.map(band => band+=" rocks!");
+console.log(aa);
+
+aa = nxtBgThng_2021_sat.map(band => band = "not weezer lmao");
+console.log(aa);
+
+aa =nxtBgThng_2021_sat.find(band => band.length === 8);
+console.log(aa);
+
+aa= nxtBgThng_2021_sat.find(band=> band.startsWith("W"));
+console.log(aa);
+
+aa=nxtBgThng_2021_sat.filter(band => band.startsWith("W")=== false &&  band.startsWith("And")=== false);
+console.log(aa);
+
+aa=nxtBgThng_2021_sat.filter(band => band.startsWith("W") || band.startsWith("And"));
+console.log(aa);
+
+aa =nxtBgThng_2021_sat.join(", ");
+console.log(aa);
+
+aa= nxtBgThng_2021_sat.join("--");
+console.log(aa);
