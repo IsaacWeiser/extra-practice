@@ -148,3 +148,7 @@ console.log(aa);
 
 aa= nxtBgThng_2021_sat.join("--");
 console.log(aa);
+
+//ternary operators
+let joe ="schmo";
+joe === "pro" ? console.log("hell yea"): console.log("oof");
