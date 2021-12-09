@@ -152,3 +152,6 @@ console.log(aa);
 //ternary operators
 let joe ="schmo";
 joe === "pro" ? console.log("hell yea"): console.log("oof");
+
+let boBurnham = "sad";
+boBurnham === "happy" ? console.log("yay!"): console.log("oh no!");
