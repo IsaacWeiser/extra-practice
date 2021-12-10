@@ -155,3 +155,94 @@ joe === "pro" ? console.log("hell yea"): console.log("oof");
 
 let boBurnham = "sad";
 boBurnham === "happy" ? console.log("yay!"): console.log("oh no!");
+
+//create db, use sets, gets, transient state
+const db ={
+    letters: 
+    [
+        {
+            id: 1,
+            lett: "a"
+        },
+        {
+            id: 2,
+            lett: "b"
+        },
+        {
+            id:3,
+            lett: "c"
+        }
+
+    ],
+    numbers: 
+    [
+        {
+            id: 1,
+            num: 1
+        },
+        {
+            id:2,
+            num:2
+        },
+        {
+            id:3,
+            num:3
+        }
+    ],
+    combos: []
+}
+
+const getLetters = () => {
+    //get the data sets
+    return db.letters.map(letter => ({...letter}));
+}
+
+const getNumbers = () => {
+    return db.numbers.mao(number => ({...number}));
+}
+
+//transient state
+let tempCombos = {};
+
+//create functions that will load data into the transient state
+const setLetter = (id) => {
+  tempCombos.letterId = id; 
+}
+const setNumber = (id) => {
+    tempCombos.numberId = id;
+}
+
+//create a function that will utilize the the id of the letters and numbers (to mimic the target.id feature)
+// when the ids are grabbed they should be set into the transient state
+// once stored within the transient state they (test to see if you can push more into the trans state) can be assigned into a new object
+//then determine their order in the permanent object and assign it that ID
+// once state has changed, create a custom event that alerts us to the state change
+//clear the trans state
+//  log out the trans and perm states
+
+const clickEvent = (lettIdVal, numIdVal) => {
+  setLetter(lettIdVal);
+  setNumber(numIdVal);
+}
+
+const comboBuild = () => {
+    //find index they should be
+    let lastIndex = db.combos.length;
+    let newComboId = lastIndex+1;
+
+    tempCombos.id =newComboId;
+    tempCombos.price= 420.69;
+
+    //copy trans state into perm state and clear trans state
+    db.combos.push(tempCombos);
+    tempCombos = {};
+    //document.dispatchEvent(new customEvent("stateChanged"))
+
+}
+
+//console.log("empty array length: " + db.combos.length); //0
+
+clickEvent(2,3);
+comboBuild();
+
+console.log("trans state: " + JSON.stringify(tempCombos) + "\n" + " perm state: " + JSON.stringify(db.combos));
