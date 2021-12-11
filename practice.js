@@ -220,7 +220,7 @@ const setNumber = (id) => {
 //clear the trans state
 //  log out the trans and perm states
 
-const clickEvent = (lettIdVal, numIdVal) => {
+const simulatedClickEvent = (lettIdVal, numIdVal) => {
   setLetter(lettIdVal);
   setNumber(numIdVal);
 }
@@ -242,7 +242,7 @@ const comboBuild = () => {
 
 //console.log("empty array length: " + db.combos.length); //0
 
-clickEvent(2,3);
+simulatedClickEvent(2,3);
 comboBuild();
 
 console.log("trans state: " + JSON.stringify(tempCombos) + "\n" + " perm state: " + JSON.stringify(db.combos));
