@@ -246,3 +246,21 @@ simulatedClickEvent(2,3);
 comboBuild();
 
 console.log("trans state: " + JSON.stringify(tempCombos) + "\n" + " perm state: " + JSON.stringify(db.combos));
+
+//make a copy of an array of objects
+let evenNums = [{id:1, num:1}, {id:2, num:2}, {id:3,num:3}];
+
+let evNums = evenNums.map(num => ({...num}));
+console.log(evNums); 
+
+//create a moded object the allows each item to be strings
+let numString = evenNums.map(nums => `<p>this number is ${nums.num} and its order place is ${nums.id}</p>`).join(" ");
+console.log(numString);
+
+//ternary statement
+let penelopeScott="attractive";
+penelopeScott === "attractive" ? console.log("ooo weee mama!") : console.log("oh :(");
+
+//event dispatching
+document.dispatchEvent(new CustomEvent("sale at the gap"));
+document.addEventListener("sale at the gap", ()=> console.log("honor the revolution!"));
