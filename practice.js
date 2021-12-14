@@ -262,5 +262,14 @@ let penelopeScott="attractive";
 penelopeScott === "attractive" ? console.log("ooo weee mama!") : console.log("oh :(");
 
 //event dispatching
-document.dispatchEvent(new CustomEvent("sale at the gap"));
-document.addEventListener("sale at the gap", ()=> console.log("honor the revolution!"));
+/*document.dispatchEvent(new CustomEvent("sale at the gap"));
+document.addEventListener("sale at the gap", ()=> console.log("honor the revolution!"));*/
+
+//practice obtaining a copy of a db
+let getLettts = () => {
+    return db.letters.map(lett => ({...lett}));
+}
+console.log(getLettts());
+
+//fetch practice
+fetch("http://google.com").then(data => data.json).then(info => {console.log(info)});
