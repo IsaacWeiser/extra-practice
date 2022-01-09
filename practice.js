@@ -272,4 +272,88 @@ let getLettts = () => {
 console.log(getLettts());
 
 //fetch practice
-fetch("http://google.com").then(data => data.json).then(info => {console.log(info)});
+//fetch("http://google.com").then(data => data.json).then(info => {console.log(info)});
+
+let elll =document.querySelector("#jzon");
+elll.textContent="help"
+
+fetch("http://localhost:8088/big").then(
+    data=> data.json()).then(response =>{ console.log(response)})
+
+
+/*fetch("http://localhost:8088/big").then(villains=> villains.json()).then(vills => {
+   inTxt(vills);
+})*/
+
+inTxt();
+
+function inTxt () {
+    let html="<ul>";
+    fetch("http://localhost:8088/big").then(vills=> vills.json()).then(villians=> {
+        villians.map((evilPerson)=> 
+           html +=  `<li>${evilPerson.name}</li>`
+        )
+    }).then(()=>{html+= "</ul>"}).then(()=> document.querySelector("#list").innerHTML= html)
+    
+}
+
+
+const post = (postReq, db) => {
+
+let postOptions = {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body:JSON.stringify(postReq)
+}
+
+fetch(`http://localhost:8088/${db}`, postOptions).then(response=> response.json()).then(villi => console.log("new vill: " + villi.name))
+
+}
+
+//post({name: "theranos"}, "big")
+//post({name: "Dr. Otto Octavious"}, "big")
+
+document.addEventListener("click", (event)=> {
+    if (event.target.id === "delete")
+    {
+        fetch(`http://localhost:8088/big/7`, {method: "DELETE"})
+    }
+})
+
+function superb (heryo, db) {
+    const options = {
+        method: "POST",
+        headers: {"Content-Type":  "application/json"},
+        body: JSON.stringify(heryo)
+    }
+
+   return fetch(`http://localhost:8088/${db}`, options)
+}
+
+//superb({name:"Peter Porker"}, "heros");
+
+function hereye () {
+    let html ="<ul>";
+fetch("http://localhost:8088/heros").then(heroz => heroz.json()).then(herz => {
+    herz.map(hero => {
+        return html += `<li>${hero.name}</li>`;
+    })
+}).then(()=>html+="<ul>").then(()=> document.querySelector("#heroes").innerHTML =html)
+}
+
+hereye();
+
+let supp = () => {
+    return fetch("http://localhost:8088/heros");
+}
+
+supp().then(heroo => heroo.json()).then((herro)=>herro.map(item => console.log(item.name)))
+
+console.log(document.querySelector("inp"))
+
+document.addEventListener("click", (event)=> {
+    if (event.target.id === "submit")
+    {
+        superb({name:`${document.querySelector("#inp").value}`},"heros").then(()=>hereye());
+    }
+})
